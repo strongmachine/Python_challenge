@@ -30,12 +30,13 @@ with open("Resources/budget_data.csv", 'r') as file_handler:
        
         max_change_month = max_change_month + row[0]
         if (net_change > max_change):
-            max_change[0] = row["max_change_month"]
-            max_change[1] = prev_change
-        min_change_month = max_change_month + row[0]   
-        if (net_change < min_change):
-         min_change[0] = row["min_change_month"]
-         min_change[1] = prev_change
+            max_change= row[1]
+            max_change = prev_net
+           
+            min_change_month = min_change_month + row[0]   
+            if (net_change < min_change):
+                min_change = row[1]
+                min_change = prev_net
 
 #net_monthly_avg = sum(net_change_list) / len(net_change_list)
             
@@ -51,12 +52,12 @@ Financial Analysis
   Total Months: {row_count}
   Total: ${sum}
   Average  Change: ${(chng/len(change))}
-  Greatest Increase in Profits: {max_change_month[0]} (${max_change})
-  Greatest Decrease in Profits: {min_change_month[0]} (${min_change})
+  Greatest Increase in Profits: {max_change_month} (${max_change})
+  Greatest Decrease in Profits: {min_change_month} (${min_change})
 """
 print(ret)
 
        
-   with open("budget_data.txt", 'w') as txt_file:
-    txt_file.write(ret)
+   #with open("budget_data.txt", 'w') as txt_file:
+    #txt_file.write(ret)
 
