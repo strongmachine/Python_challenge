@@ -58,6 +58,6 @@ Financial Analysis
 print(ret)
 
        
-   #with open("budget_data.txt", 'w') as txt_file:
-    #txt_file.write(ret)
+   with open("budget_data.txt", 'w') as txt_file:
+    txt_file.write(ret)
 
